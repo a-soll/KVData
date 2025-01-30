@@ -15,12 +15,16 @@ public:
     }
     ~kv_data();
 
+    std::string to_json();
+
     inline kv_pair *operator[](std::string_view key) {
         return this->_token_map[key];
     }
 
 private:
     void _parse();
+    void _start_key(std::string &json, kv_token &key);
+    void _start_value(std::string &json, kv_token &value);
     kv_parser _parser;
     std::unordered_map<std::string_view, kv_pair *> _token_map;
     kv_pair *_pair = nullptr;

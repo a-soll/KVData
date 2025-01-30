@@ -17,5 +17,20 @@ int main() {
         data[i]->value.print();
     }
 
+    std::cout << data.to_json() << '\n';
+
+    /*
+    output:
+    first
+    value1
+    second
+    value2
+    third
+    value3
+    fourth
+    value4
+    {"fourth":"value4","third":"value3","second":"value2","first":"value1"}
+    */
+
     return 0;
 }

@@ -21,6 +21,12 @@ public:
         return this->_ind >= this->_data.length();
     }
 
+    inline size_t length() {
+        return this->_data.length();
+    }
+
+    std::string to_json();
+
     void next_token(kv_token &token);
     token_t cur_token = token_t::key;
 
@@ -100,7 +106,7 @@ private:
     }
 
     std::string_view _data;
-    size_t _ind    = 0;
+    size_t _ind = 0;
 };
 
 } // namespace kv

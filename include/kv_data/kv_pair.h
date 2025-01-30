@@ -9,7 +9,7 @@ class kv_pair {
 public:
     kv_pair() {}
 
-    operator std::string_view() {
+    inline operator std::string_view() {
         return std::string_view(this->key[0], this->key.length());
     }
 

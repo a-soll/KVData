@@ -13,6 +13,11 @@ public:
     inline const char *operator[](int i) const {
         return this->_t[i];
     }
+
+    inline operator std::string_view() {
+        return std::string_view(this->_t[0], this->_len);
+    }
+
     inline size_t length() const {
         return this->_len;
     }
