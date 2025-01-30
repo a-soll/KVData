@@ -16,9 +16,6 @@ public:
     }
     ~kv_data();
 
-    void print_key();
-    void print_value();
-
     inline kv_pair *operator[](std::string_view key) {
         return this->_token_map[key];
     }
