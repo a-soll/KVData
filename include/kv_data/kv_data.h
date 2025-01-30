@@ -4,7 +4,6 @@
 #include <kv_data/kv_array.hpp>
 #include <kv_data/kv_pair.h>
 #include <kv_data/kv_parser.h>
-#include <string_view>
 
 namespace kv {
 
