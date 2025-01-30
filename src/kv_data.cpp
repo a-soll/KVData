@@ -12,12 +12,12 @@ kv_data::~kv_data() {
 void kv_data::_parse() {
     while (!this->_parser.finished()) {
         switch (this->_parser.cur_token) {
-        case kv::token_t::key:
+        case token_t::key:
             this->_pair = new kv_pair;
             this->_parser.next_token(this->_pair->key);
             this->_token_map[*this->_pair] = this->_pair;
             break;
-        case kv::token_t::value:
+        case token_t::value:
             this->_parser.next_token(this->_pair->value);
             this->_token_map[*this->_pair]->value.print();
             break;
