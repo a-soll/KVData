@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    echo "-i [path]     Install to given path. Leave blank for /usr/local."
+    echo
+    echo "Run without args to build without installing"
+    exit 0
+fi
+
+install_path="$2"
+install=false
+prefix=false
+build_dir=build
+
+# to fix Error: no cache, run the below
+if [ ! -d "$build_dir" ]; then
+    cmake -S . -B ./build
+fi
+
+cd $build_dir
+cmake --build .
+
+if [ "$1" = -i ]; then
+    if [ -z $install_path ]; then
+        sudo cmake --install .
+    else
+        sudo cmake --install . --prefix $install_path
+    fi
+fi

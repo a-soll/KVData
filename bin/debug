@@ -1,0 +1,7 @@
+#!/bin/bash
+
+mkdir -p debug
+cd debug
+
+cmake .. -DCMAKE_BUILD_TYPE=Debug -DKV_DEBUG=ON
+cmake --build .
